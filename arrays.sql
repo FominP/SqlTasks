@@ -33,7 +33,6 @@ select
     (select count(distinct session_id) from sessions_with_purchase)::float/(select count(distinct session_id) from sessions_with_page_view) as conversion_rate;
    
 /*
-3. Четкая последовательность действий - 2 балла
 Используя таблицу array_tasks.user_activity в БД postgres, определите, сколько пользователей выполнили последовательность действий: просмотр страницы (page_view), просмотр продукта (product_view), добавление товара в корзину (add_to_cart) в одной сессии. Верните количество таких пользователей.
 */
 
@@ -48,7 +47,6 @@ select count(distinct user_id) as users_count
 from tmp;
    
 /*
-4. Анализ отказов в покупках - 2 балла
 Используя таблицу array_tasks.user_activity в БД postgres, найдите долю сессий,
  которые добавили товар в корзину (add_to_cart), но не завершили покупку (например, нет действия типа purchase).
   Помимо запроса укажите какую конверсию вы получили в виде десятичного числа. Не округляйте результат.
@@ -72,6 +70,4 @@ from sessions_with_add_to_cart swatc
 	left join sessions_with_purchase swp
 		on swatc.session_id = swp.session_id
 where 1=1
-    and swp.session_id is null;
-    
-select 
+    and swp.session_id is null; 

@@ -1,4 +1,4 @@
---1. Упрощенный список продаж (1 балл)
+--1. Упрощенный список продаж
 CREATE VIEW table_view_tasks.sales_summary_fomin_p_a AS
 SELECT 
     transaction_id,
@@ -8,7 +8,7 @@ SELECT
     unit_price
 FROM coffe_shop.sales_reciepts;
 	
---2. VIEW с перформансом сотрудников за апрель 2019 года (2 балла)
+--2. VIEW с перформансом сотрудников за апрель 2019 года
 CREATE VIEW table_view_tasks.staff_performance_fomin_p_a AS
 WITH experienced_staff AS (
     SELECT staff_id
@@ -30,7 +30,7 @@ WHERE 1=1
 	AND sr.transaction_date < '2019-05-01'
 GROUP BY 1,2;
 
---3. Многослойный анализ производительности кофеен (4 балла)
+--3. Многослойный анализ производительности кофеен
 --Основная информация по продажам
 CREATE VIEW table_view_tasks.sales_summary_bystore_fomin_p_a AS
 SELECT 
